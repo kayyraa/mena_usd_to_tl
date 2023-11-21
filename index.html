@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MENA USD Converter</title>
+        <link rel="icon" type="image/x-icon" href="https://assets.materialup.com/uploads/6dfe1813-10aa-4200-8ea4-d751a5442c56/preview">
+    </head>
+    <body>
+        <span class="ulabel">MENA</span>
+        <span class="tlabel">TL</span>
+        <input placeholder="2.71$" value="1" class="usd" id="usd" type="number">
+        <span class="tl" id="tl"></span>
+        <span class="time">21.11.2023 / 20:21</span>
+    </body>
+    <style>
+        .time {
+            font-size: 48px;
+            position: fixed;
+            font-family: "Consolas";
+            left: 480px;
+            top: 50px;
+        }
+
+        .usd {
+            position: fixed;
+            width: 350px;
+            height: 128px;
+            font-size: 75px;
+            font-family: "Consolas";
+            font-weight: 900;
+            top: 256px;
+            left: 375px;
+        }
+
+        .tl {
+            position: fixed;
+            width: 256px;
+            height: 128px;
+            font-size: 100px;
+            font-family: "Consolas";
+            font-weight: 900;
+            top: 256px;
+            left: 750px;
+        }
+
+        .ulabel {
+            font-size: 64px;
+            position: fixed;
+            font-family: "Consolas";
+            left: 480px;
+            top: 175px;
+        }
+
+        .tlabel {
+            font-size: 64px;
+            position: fixed;
+            font-family: "Consolas";
+            left: 855px;
+            top: 175px;
+        }
+    </style>
+    <script>
+        const mena = document.getElementById("usd");
+        const turk = document.getElementById("tl");
+        const suff = "₺";
+        const deci = 2;
+    
+        function update() {
+            const usdValue = parseFloat(mena.value);
+            const menaDecimal = 10;
+            const dollar = 28.78
+            const tlValue = (usdValue * (dollar - menaDecimal) + 0.01).toFixed(deci).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suff;
+
+            turk.innerHTML = tlValue;
+            if (turk.innerHTML == "NaN" + suff) {
+                turk.innerHTML = "0.00" + suff
+            }
+    
+            setTimeout(update, 150);
+        }
+    
+        update();
+    </script>    
+</html>
