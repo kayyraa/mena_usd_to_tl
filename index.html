@@ -68,7 +68,7 @@
             const usdValue = parseFloat(mena.value);
             const menaDecimal = 5;
             const dollar = 31.41
-            const tlValue = (usdValue * (dollar - menaDecimal) + 0.01).toFixed(deci).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suff;
+            const tlValue = (usdValue * (dollar - menaDecimal)).toFixed(deci).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suff;
 
             turk.innerHTML = tlValue;
             if (turk.innerHTML == "NaN" + suff) {
