@@ -66,7 +66,7 @@
     
         function update() {
             const usdValue = parseFloat(mena.value);
-            const menaDecimal = 5;
+            const menaDecimal = 4;
             const dollar = 31.41
             const tlValue = (usdValue * (dollar - menaDecimal)).toFixed(deci).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suff;
 
