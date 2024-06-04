@@ -9,7 +9,7 @@
         <span class="tlabel">TL</span>
         <input placeholder="2.71$" value="1" class="usd" id="usd" type="number">
         <span class="tl" id="tl"></span>
-        <span class="time">02.03.2024 / 18:11</span>
+        <span class="time">04.06.2024 / 18:11</span>
     </body>
     <style>
         .time {
@@ -67,7 +67,7 @@
         function update() {
             const usdValue = parseFloat(mena.value);
             const menaDecimal = 5;
-            const dollar = 31.35
+            const dollar = 31.41
             const tlValue = (usdValue * (dollar - menaDecimal) + 0.01).toFixed(deci).replace(/\B(?=(\d{3})+(?!\d))/g, ",") + suff;
 
             turk.innerHTML = tlValue;
